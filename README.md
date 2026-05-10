@@ -42,12 +42,17 @@ Install dependencies	pip install -r requirements.txt
 
 
 🦙 Install Ollama
+
 Download Ollama from:
+
 Ollama Official Website
 
 📥 Download AI Model
+
 Model	Command
+
 Phi	ollama run phi
+
 TinyLlama	ollama run tinyllama
 
 📄 Add Study Materials
