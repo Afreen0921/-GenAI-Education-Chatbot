@@ -1,22 +1,15 @@
 from transformers import pipeline
 
 generator = pipeline(
-    "text-generation",
-    model="distilgpt2"
+    "text2text-generation",
+    model="google/flan-t5-base"
 )
 
 def generate_answer(prompt):
 
     result = generator(
         prompt,
-        max_new_tokens=40,
-        do_sample=False,
-        truncation=True
+        max_new_tokens=50
     )
 
-    generated_text = result[0]["generated_text"]
-
-    # Remove prompt from output
-    answer = generated_text.replace(prompt, "").strip()
-
-    return answer
+    return result[0]["generated_text"]
