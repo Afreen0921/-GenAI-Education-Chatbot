@@ -12,6 +12,6 @@ pypdf
 PyPDF2
 requests
 huggingface_hub
-
 pandas
 
+transformers>=4.41.0
