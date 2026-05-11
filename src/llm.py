@@ -1,24 +1,16 @@
-import os
-from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
+from transformers import pipeline
 
-load_dotenv()
-
-client = InferenceClient(
-    api_key=os.getenv("HF_TOKEN")
+generator = pipeline(
+    "text-generation",
+    model="distilgpt2"
 )
 
 def generate_answer(prompt):
 
-    response = client.chat_completion(
-        model="HuggingFaceH4/zephyr-7b-beta",
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        max_tokens=80
+    result = generator(
+        prompt,
+        max_new_tokens=60,
+        truncation=True
     )
 
-    return response.choices[0].message.content
+    return result[0]["generated_text"]
