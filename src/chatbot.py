@@ -55,9 +55,13 @@ def chat(question):
     )
 
     prompt = f"""
-You are an educational AI chatbot.
+You are an AI Education Chatbot.
 
-Answer the question using the context below.
+Answer ONLY from the given context.
+If the answer is not present in the context, say:
+"Answer not found in study materials."
+
+Keep the answer short and student-friendly.
 
 Context:
 {context}
