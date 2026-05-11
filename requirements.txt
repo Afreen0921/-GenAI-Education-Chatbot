@@ -14,4 +14,4 @@ requests
 huggingface_hub
 pandas
 
-transformers>=4.41.0
+transformers==4.41.2
