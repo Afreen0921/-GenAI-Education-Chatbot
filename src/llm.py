@@ -16,13 +16,10 @@ def generate_answer(prompt):
 
     generated_text = result[0]["generated_text"]
 
-    # Remove original prompt
     answer = generated_text[len(prompt):].strip()
 
-    # Remove repeated Answer:
     answer = answer.replace("Answer:", "").strip()
 
-    # Fallback
     if answer == "":
         answer = "Answer not found in study materials."
 

@@ -50,34 +50,17 @@ def chat(question):
 
     context = retrieve_context(question, index, texts)
 
-    # If retrieved context is too weak
-    if len(context.strip()) < 50:
+    if not context or len(context.strip()) < 30:
         return "Answer not found in study materials."
 
-    prompt = f"""
-You are an AI Education Chatbot.
+    # Clean response
+    context = context.replace("\n", " ")
 
-Use ONLY the given study material context.
+    sentences = context.split(". ")
 
-If the answer is not present in the context, reply:
-Answer not found in study materials.
+    short_answer = ". ".join(sentences[:2]).strip()
 
-Give a short and clear student-friendly answer.
-
-Context:
-{context}
-
-Question:
-{question}
-
-Answer:
-"""
-
-    answer = generate_answer(prompt)
-
-    return answer
-
-
+    return short_answer
 # Run chatbot in terminal
 if __name__ == "__main__":
 
