@@ -48,20 +48,21 @@ def chat(question):
 
     index, texts = load_vector_store()
 
-    context = retrieve_context(
-        question,
-        index,
-        texts
-    )
+    context = retrieve_context(question, index, texts)
+
+    # If retrieved context is too weak
+    if len(context.strip()) < 50:
+        return "Answer not found in study materials."
 
     prompt = f"""
 You are an AI Education Chatbot.
 
-Answer ONLY from the given context.
-If the answer is not present in the context, say:
-"Answer not found in study materials."
+Use ONLY the given study material context.
 
-Keep the answer short and student-friendly.
+If the answer is not present in the context, reply:
+Answer not found in study materials.
+
+Give a short and clear student-friendly answer.
 
 Context:
 {context}
