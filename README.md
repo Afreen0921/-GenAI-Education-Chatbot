@@ -1,7 +1,7 @@
 # -GenAI-Education-Chatbot
 📚 GenAI Education Chatbot
 An intelligent AI-powered Education Chatbot built using Retrieval-Augmented Generation (RAG), FAISS, Sentence Transformers, Ollama, and Streamlit.
-The chatbot answers questions directly from uploaded PDF study materials such as Mathematics, Science, Physics, English, and Programming notes.
+The chatbot answers questions directly from uploaded PDF study materials such as Mathematics, Science, Physics, English.
 
 | Feature                    | Description                                             |
 | -------------------------  | ------------------------------------------------------- |
@@ -91,8 +91,7 @@ streamlit run app.py
 | Mathematics | Explain vectors          |
 | Physics     | What is photosynthesis?  |
 | Physics     | Define gravity           |
-| Programming | What is Python?          |
-| Programming | Explain machine learning |
+
 
 🛠️ Technology Stack
 | Component       | Technology Used       |
