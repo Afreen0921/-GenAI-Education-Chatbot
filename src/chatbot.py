@@ -40,7 +40,14 @@ def retrieve_context(question, index, texts, k=5):
 
     retrieved_chunks = []
 
-    for idx in indices[0]:
+    # Minimum similarity threshold
+    SIMILARITY_THRESHOLD = 0.45
+
+    for score, idx in zip(scores[0], indices[0]):
+
+        # Ignore weak matches
+        if score < SIMILARITY_THRESHOLD:
+            continue
 
         if idx < len(texts):
 
@@ -58,7 +65,6 @@ def retrieve_context(question, index, texts, k=5):
         return ""
 
     return " ".join(retrieved_chunks[:2])
-
 
 # Clean final answer
 def clean_answer(text):
