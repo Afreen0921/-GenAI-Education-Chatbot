@@ -64,7 +64,7 @@ Example PDFs
 Subject	       File Name
 Mathematics	   maths.pdf
 Physics        physics.pdf
-Programming	   python.pdf
+
 
 🧠 Create Vector Database
 
